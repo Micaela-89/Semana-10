@@ -1,22 +1,12 @@
-// inputs
 var email = document.getElementById('emailInput');
 var password = document.getElementById('passwordInput');
-
-// mensajes de error
 var passwordMsg = document.getElementById('errorMsgPassword');
 var emailMsg = document.getElementById('errorMsgEmail');
-
-// labels
-var passwordLabel = document.getElementById('password');
-var emailLabel = document.getElementById('eMail');
-
-// formulario
 var form = document.getElementById('loginForm');
 var inputs = document.querySelectorAll('.infoInput');
-
 var expressions = {
     name: /(^[a-zA-Z\s]{6,})+$/,
-    email: /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9._+-]+\.[a-zA-Z]+$/;
+    email: /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9._+-]+\.[a-zA-Z]+$/,
     password: /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/,
 }
 var fields = {
@@ -77,9 +67,6 @@ form.addEventListener('submit', function(e) {
     if (fields['email'] && fields['password']) {
         validationDiv.style.display = 'flex';
         validationDiv.textContent = 'Your account data is:' + " " + email.value + " " + password.value;
-        fetch(`https://jsonplaceholder.typicode.com/users?email=${email.value}`)
-        .then (response => response.json())
-        .then (data => console.log(data));
     }
     else {
         validationDiv.style.display = 'flex';

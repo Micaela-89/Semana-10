@@ -1,28 +1,16 @@
-// Formulario
 var form = document.getElementById('registerForm');
 var inputs = document.querySelectorAll('.infoInput');
-
-// inputs
 var nameInput = document.getElementById('nameInput');
 var emailInput = document.getElementById('emailInput');
 var passwordInput = document.getElementById('passwordInput');
 var confirmPassInput = document.getElementById('confirmPassInput');
-
-// mensajes de error
 var nameMsg = document.getElementById('errorMsgName');
 var emailMsg = document.getElementById('errorMsgEmail');
 var passwordMsg = document.getElementById('errorMsgPassword');
 var confirmPassMsg = document.getElementById('errorMsgConfirmPass');
-
-//labels
-var nameLabel = document.getElementById('name')
-var emailLabel = document.getElementById('eMail');
-var passwordLabel = document.getElementById('password');
-var confirmPassLabel = document.getElementById('confirmPass');
-
 var expressions = {
 	name: /(^[a-zA-Z\s]{6,})+$/,
-    email:/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    email: /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9._+-]+\.[a-zA-Z]+$/,
 	password:/^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/,
 }
 
@@ -117,9 +105,6 @@ form.addEventListener('submit', function(e){
 	validationDiv.style.display = 'block';
     validationDiv.textContent = 'Your account data is:' + " " + nameInput.value +
     " " + emailInput.value + " " + passwordInput.value + " " + confirmPassInput.value;
-    fetch(`https://jsonplaceholder.typicode.com/users?email=${email.value}`)
-    .then (response => response.json())
-    .then (data => console.log(data));
     }
     else {
         validationDiv.style.display = 'flex';
@@ -127,7 +112,6 @@ form.addEventListener('submit', function(e){
         validationDiv.textContent = 'Please complete all fields as required'
     }
 })
-
 
 async function getUsers(){
     fetch(`https://jsonplaceholder.typicode.com/users?email=${email.value}`)

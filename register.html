@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/Styles.css">
+</head>
+<body>
+    <div class="content">
+        <h1>
+            Register!
+        </h1>
+        <form id="registerForm">
+            <label id= "name" for="name"> Full name:
+            </label>
+            <input id="nameInput" class="infoInput" type="text" name="name" placeholder="Full name"required>
+            <span id="errorMsgName" class="errorMsg">
+                    Your name must contain at least 6 characters and a space between First name and Last name.
+                </span>
+            <label id="eMail" for="eMail"> E-mail:
+            </label>
+            <input id="emailInput" class="infoInput" type="email" name="eMail" placeholder="Your email" required>
+            <span id= "errorMsgEmail" class="errorMsg">
+                The email is not valid.
+            </span>
+            <label id="password" for="password"> Password:
+            </label>
+            <input id="passwordInput" class="infoInput"  type="password" name="password"   placeholder="Create your password"required>>
+            <span id= "errorMsgPassword" class="errorMsg">
+                    Your password must be at least 8 characters long and contain letters and numbers.
+            </span>
+            <label id="confirmPass" for="confirmPass"> Confirm password:
+            </label>
+            <input  id="confirmPassInput" class="infoInput" type="password" name="confirmPassword" placeholder="Confirm your password" required>>
+            <span id="errorMsgConfirmPass" class="errorMsg">
+                Passwords do not match.
+            </span>
+            <input class="submitBtn" type="submit" value="Submit">
+            <input class="resetBtn" type="reset" value="Reset">
+            <a class="submit" href="./login.html">
+                Already have an account? Login here!
+            </a>
+        </form>
+        <div class="validations-hidden">
+        </div>
+    </div>
+    <script src="js/registervalidations.js">
+    </script>
+</body>
+</html>

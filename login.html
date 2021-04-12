@@ -9,29 +9,35 @@
     <link rel="stylesheet" href="css/Styles.css">
 </head>
 <body>
-    <div class="validations-hidden">
-    </div>
     <div class="content">
         <h1>
             Log In
         </h1>
         <form id="loginForm">
-            <label for="eMail">
+            <label id="eMail" for="eMail">
                 E-mail:
             </label>
-            <input class="infoInput" type="email" name="eMail" required>
-            <label for="password">
+            <input id="emailInput" class="infoInput" type="email" name="eMail" placeholder="Your email here" required>
+            <span id= "errorMsgEmail" class="errorMsg">
+                The email address is invalid
+            </span>
+            <label id="password" for="password">
                 Password:
             </label>
-            <input class="infoInput" type="password" name="password"  required>
+            <input id="passwordInput"  class="infoInput" type="password" name="password" placeholder="Enter your password" required>
+            <span id= "errorMsgPassword" class="errorMsg">
+                Your password can only contain letters and numbers and must be at least 8 characters long.
+            </span>
             <input class="submitBtn" type="submit" value="Log in">
             <input class="resetBtn" type="reset" value="Reset">
             <a class="submit" href="./register.html">
                 Don't have an account? Register here!
             </a>
     </form>
+    <div class="validations-hidden">
     </div>
-    <script src="./js/login.js">
+    </div>
+    <script src="js/loginvalidations.js">
     </script>
 </body>
 </html>

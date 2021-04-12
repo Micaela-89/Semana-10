@@ -31,7 +31,7 @@ var fields = {
     email: false,
     password: false,
     confirmPass: false,
-};
+}
 
 var formValidation = function (e) {
     switch(e.target.name) {
@@ -117,6 +117,9 @@ form.addEventListener('submit', function(e){
 	validationDiv.style.display = 'block';
     validationDiv.textContent = 'Your account data is:' + " " + nameInput.value +
     " " + emailInput.value + " " + passwordInput.value + " " + confirmPassInput.value;
+    fetch(`https://jsonplaceholder.typicode.com/users?email=${email.value}`)
+    .then (response => response.json())
+    .then (data => console.log(data));
     }
     else {
         validationDiv.style.display = 'flex';

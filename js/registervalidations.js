@@ -128,3 +128,17 @@ form.addEventListener('submit', function(e){
     }
 })
 
+
+async function getUsers(){
+    fetch(`https://jsonplaceholder.typicode.com/users?email=${email.value}`)
+    .then(function(response){
+    return response.json();
+    })
+    .then(data => console.log(data))
+    .catch()
+};
+
+submitForm.onclick = function() {
+    getUsers();
+};
+

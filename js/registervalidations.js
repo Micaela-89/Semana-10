@@ -8,6 +8,7 @@ var nameMsg = document.getElementById('errorMsgName');
 var emailMsg = document.getElementById('errorMsgEmail');
 var passwordMsg = document.getElementById('errorMsgPassword');
 var confirmPassMsg = document.getElementById('errorMsgConfirmPass');
+var submitForm = document.getElementById('submitForm');
 var expressions = {
 	name: /(^[a-zA-Z\s]{6,})+$/,
     email: /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9._+-]+\.[a-zA-Z]+$/,
@@ -113,16 +114,23 @@ form.addEventListener('submit', function(e){
     }
 })
 
-async function getUsers(){
-    fetch(`https://jsonplaceholder.typicode.com/users?email=${email.value}`)
-    .then(function(response){
-    return response.json();
+function sendRegForm(){
+    fetch('http://localhost:4000/register',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+            },
+        body: JSON.stringify({
+            name: nameInput.value,
+            email: emailInput.value,
+            password: passwordInput.value,
+        })
     })
-    .then(data => console.log(data))
-    .catch()
-};
+    .then (response => response.json())
+    .then (data => console.log(data))
+    .catch(function(error){
+        console.log("Error trying to send the data")
+    })
+}
 
-submitForm.onclick = function() {
-    getUsers();
-};
 

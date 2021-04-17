@@ -4,6 +4,7 @@ var passwordMsg = document.getElementById('errorMsgPassword');
 var emailMsg = document.getElementById('errorMsgEmail');
 var form = document.getElementById('loginForm');
 var inputs = document.querySelectorAll('.infoInput');
+var submitForm = document.getElementById('submitForm');
 var expressions = {
     name: /(^[a-zA-Z\s]{6,})+$/,
     email: /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9._+-]+\.[a-zA-Z]+$/,
@@ -74,15 +75,21 @@ form.addEventListener('submit', function(e) {
         validationDiv.textContent = 'Please complete all fields as required'
     }
 });
-async function getUsers(){
-    fetch(`https://jsonplaceholder.typicode.com/users?email=${email.value}`)
-    .then(function(response){
-    return response.json();
-    })
-    .then(data => console.log(data))
-    .catch()
-};
 
-submitForm.onclick = function() {
-    getUsers();
-};
+    function sendLoginForm(){
+        fetch('http://localhost:4000/login',{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+                },
+            body: JSON.stringify({
+                email: email.value,
+                password: password.value,
+            })
+        })
+        .then (response => response.json())
+        .then (data => console.log(data))
+        .catch(function(error){
+            console.log("Error trying to send the data")
+        })
+}

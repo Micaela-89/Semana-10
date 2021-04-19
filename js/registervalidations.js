@@ -106,6 +106,7 @@ form.addEventListener('submit', function(e){
 	validationDiv.style.display = 'block';
     validationDiv.textContent = 'Your account data is:' + " " + nameInput.value +
     " " + emailInput.value + " " + passwordInput.value + " " + confirmPassInput.value;
+    sendRegForm();
     }
     else {
         validationDiv.style.display = 'flex';

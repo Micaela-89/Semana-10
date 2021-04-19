@@ -68,6 +68,7 @@ form.addEventListener('submit', function(e) {
     if (fields['email'] && fields['password']) {
         validationDiv.style.display = 'flex';
         validationDiv.textContent = 'Your account data is:' + " " + email.value + " " + password.value;
+        sendLoginForm();
     }
     else {
         validationDiv.style.display = 'flex';

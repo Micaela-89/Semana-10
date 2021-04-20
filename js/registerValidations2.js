@@ -93,7 +93,7 @@ function confirmPassValidation(){
     }else{
         confirmPassword.style.border = '3px solid red';
         confirmPasswordMsg.style.display = 'block';
-        fields['Password2'] = false;
+        fields['password2'] = false;
     }
 document.getElementById('confirmPassInput').addEventListener('focus', clearPassword2);
 function clearPassword2 () {
@@ -111,7 +111,7 @@ registerForm.addEventListener('submit', function(e) {
     var nameInput = document.getElementById('nameInput');
     var email = document.getElementById('emailInput');
     var password = document.getElementById('passwordInput');
-    if (fields ['name'] && fields ['email'] && fields ['password'] && fields ['Password2']) {
+    if (fields ['name'] && fields ['email'] && fields ['password'] && fields ['password2']) {
     validations.style.display = 'flex';
     validations.innerHTML = 'Registration process successful. Your user data is:' + " " + nameInput.value + " " + email.value + " " + password.value;
     sendRegForm()

@@ -82,7 +82,7 @@ function sendLoginForm(){
         },
         body:JSON.stringify({
             email:emailValue,
-            password: passwordValue,
+            pass: passwordValue,
         })
     })
     .then (response => response.json())
